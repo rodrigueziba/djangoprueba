@@ -18,13 +18,17 @@ from django.urls import include,path
 from appprueba import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic import RedirectView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('', RedirectView.as_view(url='/app/', permanent=True)),
+     ##path('', RedirectView.as_view(url='/app/', permanent=True)),
     path('app/', include('appprueba.urls')),
-	path('categoria/mostrar',views.mostrar,name='mostrar'),
-    path('certificacionespedidos/mostrar',views.mostrarCertificacionesPedidos,name='mostrar'),
-    static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+	##path('categoria/mostrar',views.mostrar,name='mostrar'),
+    ##path('certificacionespedidos/mostrar',views.mostrarCertificacionesPedidos,name='mostrar'),
+    ##static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += [
+    path('', RedirectView.as_view(url='/app/', permanent=True)),
 ]
-
