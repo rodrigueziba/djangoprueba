@@ -1,0 +1,62 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Title</title>  
+      {# Cargamos la librería #}
+	  {% load bootstrap4 %}
+ 
+	  {# CSS Bootstrap #}
+	  {% bootstrap_css %}
+     
+</head>  
+<body>
+    
+
+
+    <h1>Lista de categorias</h1>
+    <table class="table table-dark" border="1" width="600">
+    <tr>
+    <td>Idd</td>
+    <td>Empresa</td>
+    <td>Documento</td>
+    <td>Apellido</td>
+    <td>Fecha Pedido</td>
+    <td>Estado</td>
+    <td>Nro Nota</td>
+    <td>Prioridad</td>
+    <td>Fecha</td>
+    <td>Usuario</td>
+    <td>Movimiento</td>
+    </tr>
+    {% for sts in st %}
+    <tr>
+    <td>{{ sts.idd }}</td>
+    <td>
+    {{ sts.empresa }}</td>
+    <td> {{ sts.documento }}
+    </td>
+    <td> {{ sts.apellido }}
+    </td>
+    <td> {{ sts.fecha_pedido }}
+    </td>
+    <td> {{ sts.estado}}
+    </td>
+    <td> {{ sts.nronota }}
+    </td>
+    <td> {{ sts.prioridad }}
+    </td>
+    <td> {{ sts.fecha }}
+    </td>
+    <td> {{ sts.usuario }}
+    </td>
+    <td> {{ sts.movim }}
+    </td>
+    </tr>
+    {% endfor %}
+    </table>
+
+      {# JS y jQuery Bootstrap #}
+	  {% bootstrap_javascript jquery='full' %}
+    </body>
+    </html>  

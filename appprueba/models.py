@@ -31,4 +31,23 @@ class Categorias(models.Model):
     class Meta:
         managed = False
         db_table = 'categorias'
+        
+class CertificacionesPedidos(models.Model):
+    idd = models.AutoField(db_column='IDD', primary_key=True)  # Field name made lowercase.
+    empresa = models.CharField(db_column='Empresa', max_length=6)  # Field name made lowercase.
+    documento = models.DecimalField(db_column='Documento', max_digits=18, decimal_places=0)  # Field name made lowercase.
+    apellido = models.CharField(db_column='Apellido', max_length=40, blank=True, null=True)  # Field name made lowercase.
+    fecha_pedido = models.DateTimeField(db_column='Fecha Pedido')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    estado = models.CharField(db_column='Estado', max_length=2)  # Field name made lowercase.
+    nronota = models.CharField(db_column='NroNota', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    prioridad = models.IntegerField(db_column='Prioridad')  # Field name made lowercase.
+    fecha = models.DateTimeField(db_column='Fecha', blank=True, null=True)  # Field name made lowercase.
+    usuario = models.CharField(db_column='Usuario', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    movim = models.CharField(db_column='Movim', max_length=1, blank=True, null=True)
+# Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'certificaciones pedidos'
+        #ordering = ('idd',)
 # Create your models here.

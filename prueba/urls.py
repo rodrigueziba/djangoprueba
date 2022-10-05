@@ -14,12 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include,path
 from appprueba import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+     path('', RedirectView.as_view(url='/app/', permanent=True)),
+    path('app/', include('appprueba.urls')),
 	path('categoria/mostrar',views.mostrar,name='mostrar'),
-
+    path('certificacionespedidos/mostrar',views.mostrarCertificacionesPedidos,name='mostrar'),
+    static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ]
+
